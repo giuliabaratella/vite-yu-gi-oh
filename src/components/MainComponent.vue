@@ -5,7 +5,7 @@
             
             <div class="row column-gap-4 justify-content-between">
                 <div class="counter col-12">
-                    <p class="my-2 fw-bold">Found {{ store.cardList.length }} cards</p>
+                    <p class="my-3 fw-bold">Found {{ store.cardList.length }} cards</p>
                 </div>
                 <cardBox v-for="card in store.cardList"
                 :title="card.name"

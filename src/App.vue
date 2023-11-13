@@ -1,17 +1,20 @@
 <template>
   <HeaderComponent/>
-  <MainComponent/>
+  <MainComponent v-if="store.cardList.length >= 20"/>
+  <LoadingCards v-else />
 </template>
 
 <script>
 import axios from 'axios';
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
+import LoadingCards from './components/LoadingCards.vue';
 import {store} from './data/store';
 export default {
   components: {
     HeaderComponent,
     MainComponent,
+    LoadingCards,
   },
   data() {
     return {
