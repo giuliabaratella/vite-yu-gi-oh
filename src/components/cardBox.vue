@@ -1,9 +1,9 @@
 <template>
-    <div class="card-box text-center mb-3">
+    <div class="col-2 card-box text-center mb-3">
         <div class="img-box mb-3">
             <img :src="img" :alt="title">
         </div>
-        <div class="card-text">
+        <div class="card-text px-2">
             <h5 class="text-uppercase mb-3">{{title}}</h5>
             <div>{{subtitle}}</div>
         </div>
@@ -24,16 +24,18 @@
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
 .card-box{
-    width: 200px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     background-color: $primaryColor;
     .card-text{
-        padding: 10px;
+        padding-bottom: 10px;
         h5{
             color: $lightColor;
             font-size: 1em;
         }
     }
     .img-box{
+        width: 100%;
         img {
             width: 100%;
         }
