@@ -4,25 +4,19 @@
             <label for="archetype">Filter by Archetype</label>
             <select name="archetype" id="archetype" class="form-select" aria-label="Archetype" v-model="SelectedValue" @change="$emit('archetypeValue', SelectedValue)">
                 <option value="" selected>...</option>
-                <option value="-Eyes Dragon">-Eyes Dragon</option>
-                <option value="ABC">ABC</option>
-                <option value="Abyss Script">Abyss Script</option>
-                <option value="Adamancipator">Adamancipator</option>
-                <option value="Adventurer Token">Adventurer Token</option>
-                <option value="Aesir">Aesir</option>
-                <option value="Aether">Aether</option>
-                <option value="Alligator">Alligator</option>
-
+                <option v-for="el in store.archetypesList" :value="el.archetype_name">{{el.archetype_name}}</option>
             </select>
         </div>
     </div>
 </template>
 
 <script>
+import {store} from '../data/store.js';
 export default {
     name:'SearchComponent',
     data () {
         return {
+            store,
             SelectedValue:'',
         }
     },

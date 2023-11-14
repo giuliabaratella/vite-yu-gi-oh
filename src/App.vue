@@ -39,6 +39,16 @@ export default {
         this.store.error= error.message
       }).finally(()=>store.loading = false)
     },
+    getArchetypes(){
+      axios.get(store.apiArchetype).then((response)=>{
+        // console.log(response.data);
+        for (let i=0; i<20; i++){
+          store.archetypesList.push(response.data[i]);
+          
+        }
+        console.log(store.archetypesList);
+      })
+    },
     setParameters(val){
       console.log(val);
       this.parameters = {
@@ -51,6 +61,7 @@ export default {
   },
   created() {
     this.getCards();
+    this.getArchetypes();
   }
     
 }
