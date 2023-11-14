@@ -51,12 +51,8 @@ export default {
     },
     setParameters(val){
       console.log(val);
-      this.parameters = {
-        num:20,
-        offset:0,
-        archetype: val,
-      }
-      this.getCards();
+      this.parameters.archetype = val;
+      this.getCards()
     }
   },
   created() {

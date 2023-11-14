@@ -1,7 +1,7 @@
 <template>
     <div id="search-component">
         <div class="container py-4 px-5">
-            <label for="archetype">Filter by Archetype</label>
+            <label for="archetype" class="mb-3">Filter by Archetype</label>
             <select name="archetype" id="archetype" class="form-select" aria-label="Archetype" v-model="SelectedValue" @change="$emit('archetypeValue', SelectedValue)">
                 <option value="" selected>...</option>
                 <option v-for="el in store.archetypesList" :value="el.archetype_name">{{el.archetype_name}}</option>

@@ -13,7 +13,7 @@
             <div v-else class="row column-gap-4 justify-content-center">
                 <cardBox v-for="card in store.cardList"
                     :title="card.name"
-                    :subtitle="card.type"
+                    :subtitle="card.archetype"
                     :img="card.card_images[0].image_url"/>
             </div>
             
