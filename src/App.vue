@@ -51,7 +51,11 @@ export default {
     },
     setParameters(val){
       console.log(val);
-      this.parameters.archetype = val;
+      if(val){
+        this.parameters.archetype = val;
+      }else {
+        this.parameters.archetype = null;
+      }
       this.getCards()
     }
   },
