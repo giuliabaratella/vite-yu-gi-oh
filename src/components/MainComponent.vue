@@ -1,10 +1,9 @@
 <template>
-    <main>
-        <div class="my-4">Ricerca</div>
-        <div class="container p-5">
+    <main class="pb-3">
+        <div class="container px-5 pb-5">
             
             <div class="row column-gap-4 justify-content-between">
-                <div class="counter col-12">
+                <div class="counter col-12 mb-4">
                     <p class="my-3 fw-bold">Found {{ store.cardList.length }} cards</p>
                 </div>
                 <cardBox v-for="card in store.cardList"
