@@ -2,7 +2,7 @@
     <div id="search-component">
         <div class="container py-4 px-5">
             <label for="archetype">Filter by Archetype</label>
-            <select name="archetype" id="archetype" class="form-select" aria-label="Archetype" v-model="SelectedValue" @change="prova">
+            <select name="archetype" id="archetype" class="form-select" aria-label="Archetype" v-model="SelectedValue" @change="$emit('archetypeValue', SelectedValue)">
                 <option value="" selected>...</option>
                 <option value="-Eyes Dragon">-Eyes Dragon</option>
                 <option value="ABC">ABC</option>
@@ -27,9 +27,6 @@ export default {
         }
     },
     methods:{
-        prova(){
-            console.log(this.SelectedValue)
-        }
     }
 }
 </script>

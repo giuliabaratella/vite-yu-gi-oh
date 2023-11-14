@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent/>
-  <SearchComponent/>
+  <SearchComponent @archetypeValue="setParameters"/>
   <MainComponent v-if="store.cardList.length >= 20"/>
   <LoadingCards v-else />
 </template>
@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       store,
+      parameters: null,
     }
   },
   methods:{
@@ -33,6 +34,9 @@ export default {
         store.cardList = response.data.data;
         console.log(store.cardList)
       })
+    },
+    setParameters(val){
+      console.log(val)
     }
   },
   created() {
