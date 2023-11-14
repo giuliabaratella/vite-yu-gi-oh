@@ -2,14 +2,19 @@
     <main class="pb-3">
         <div class="container px-5 pb-5">
             
-            <div class="row column-gap-4 justify-content-between">
+            <div class="row">
                 <div class="counter col-12 mb-4">
                     <p class="my-3 fw-bold">Found {{ store.cardList.length }} cards</p>
                 </div>
+            </div>
+            <div v-if="store.error" class="error-box">
+                {{ store.error }}
+            </div>
+            <div v-else class="row column-gap-4 justify-content-center">
                 <cardBox v-for="card in store.cardList"
-                :title="card.name"
-                :subtitle="card.type"
-                :img="card.card_images[0].image_url"/>
+                    :title="card.name"
+                    :subtitle="card.type"
+                    :img="card.card_images[0].image_url"/>
             </div>
             
         </div>
@@ -45,6 +50,15 @@ main {
     }
     .container {
         background-color: $lightColor;
+    }
+    .error-box {
+        background-color: $warningColor;
+        color: $lightColor;
+        border-radius: 30px;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
     }
 }
 </style>

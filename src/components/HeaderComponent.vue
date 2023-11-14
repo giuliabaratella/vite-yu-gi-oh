@@ -19,8 +19,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/styles/partials/_variables.scss' as *;
+
 header {
     height: 80px;
+    background-color: $lightColor;
     .logo-box{
         height: 40px;
         img{

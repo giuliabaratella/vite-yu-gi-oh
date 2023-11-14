@@ -1,8 +1,8 @@
 <template>
   <HeaderComponent/>
   <SearchComponent @archetypeValue="setParameters"/>
-  <MainComponent v-if="store.cardList.length >= 20"/>
-  <LoadingCards v-else />
+  <MainComponent/>
+  <LoadingCards v-if="store.loading"/>
 </template>
 
 <script>
@@ -22,21 +22,31 @@ export default {
   data() {
     return {
       store,
-      parameters: null,
+      parameters: {
+        num: 20,
+        offset: 0,
+      },
     }
   },
   methods:{
     getCards(){
-      const urlPag1= store.apiUrl + store.pag1;
-      // console.log(urlPag1)
-      axios.get(urlPag1).then((response)=>{
+
+      axios.get(store.apiUrl, {params: this.parameters}).then((response)=>{
         // console.log(response.data.data);
         store.cardList = response.data.data;
         console.log(store.cardList)
-      })
+      }).catch((error)=>{
+        this.store.error= error.message
+      }).finally(()=>store.loading = false)
     },
     setParameters(val){
-      console.log(val)
+      console.log(val);
+      this.parameters = {
+        num:20,
+        offset:0,
+        archetype: val,
+      }
+      this.getCards();
     }
   },
   created() {
