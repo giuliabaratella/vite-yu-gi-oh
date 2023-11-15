@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent/>
   <SearchComponent @archetypeValue="setParameters"/>
-  <MainComponent/>
+  <MainComponent v-if="!store.loading"/>
   <LoadingCards v-if="store.loading"/>
 </template>
 
@@ -54,7 +54,7 @@ export default {
       if(val){
         this.parameters.archetype = val;
       }else {
-        this.parameters.archetype = null;
+       delete this.parameters.archetype;
       }
       this.getCards()
     }
